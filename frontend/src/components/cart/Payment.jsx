@@ -56,7 +56,7 @@ const Payment = ({ history }) => {
     }
 
     const paymentData = {
-        amount: Math.round(orderInfo.totalPrice * 100)
+        amount: Math.round(orderInfo.totalPrice * 100),
     }
 
     const submitHandler = async (e) => {
@@ -69,7 +69,8 @@ const Payment = ({ history }) => {
 
             const config = {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    // Authorization:`Bearer $`
                 }
             }
 

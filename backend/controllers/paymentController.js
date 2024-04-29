@@ -4,12 +4,14 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 // Process stripe payments   =>   /api/v1/payment/process
 exports.processPayment = catchAsyncErrors(async (req, res, next) => {
+	console.log('hi');
 	const paymentIntent = await stripe.paymentIntents.create({
 		amount: req.body.amount,
 		currency: "inr",
-
+		
 		metadata: { integration_check: "accept_a_payment" },
 	});
+	console.log('bye');
 
 	res.status(200).json({
 		success: true,

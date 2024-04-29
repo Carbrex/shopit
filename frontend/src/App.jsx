@@ -60,10 +60,11 @@ function App() {
       const { data } = await axios.get('/api/v1/stripeapi');
 
       setStripeApiKey(data.stripeApiKey)
+      console.log(data.stripeApiKey);
     }
 
     getStripApiKey();
-
+    
   }, [])
 
   const { user, isAuthenticated, loading } = useSelector(state => state.auth)
